@@ -1,0 +1,185 @@
+/*******************************************************
+ * Author: Thomas Neumann                              *
+ * Class:  CSCE 315                                    *
+ * File:   style.css                                   *
+ * Desc:   This file defines the variables and styles  *
+ *         for the dealer (with animation), sign,      *
+ *         table, control box, and message box         *
+ *         There is now also styles for index.html     *
+ *******************************************************/
+
+
+
+:root {
+    --sign-primary: white;
+    --sign-glow: #f0a;
+
+    --dealer-background: #222;
+    --dealer-shirt: maroon;
+    --dealer-shirt-stripe: brown;
+    --dealer-sleeve: whitesmoke;
+    --dealer-shirt-button: gold;
+    --dealer-shirt-button-accent: darkkhaki;
+
+    --table-color: green;
+    --box-color: rgba(255, 255, 255, 0.4);
+    --box-border: rgba(255, 255, 255, 0.2);
+    --box-shadow: rgba(0,0,0,0.4);
+}
+
+.neon{
+    color: var(--sign-primary);
+    text-shadow:                         /*Adding multiple shadows help make it look more glowy*/
+        0 0 0.2rem var(--sign-primary),
+        0 0 0.5rem var(--sign-primary),
+        0 0 1rem var(--sign-primary),
+        0 0 2rem var(--sign-glow),
+        0 0 4rem var(--sign-glow),
+        0 0 7.5rem var(--sign-glow);
+    font-family: "Brush Script MT", "Brush Script Std", cursive;
+}
+
+
+/* Dealer, and sign styles*/
+div#dealerArea{
+    height: 7rem;
+    background-color: var(--dealer-background);
+    text-align: center;
+}
+div#dealerArea > div:not(#sign){
+    display: inline-block;
+    height: 100%;
+}
+div#sign{
+    height: 7rem;
+    
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+div#sign{
+    left: 1.5rem;
+    font-size: 5rem;
+}
+div.dealerSleeve{
+    width: 2.5rem;
+    background-color: var(--dealer-sleeve);
+}
+div.dealerSleeve#left{
+    animation: moveLeftArm 5s infinite;
+}
+div.dealerSleeve#right{
+    animation: moveRightArm 10s infinite;
+}
+div#dealerShirt{
+    width: 8rem;
+    background: repeating-linear-gradient(90deg,                    /* this just puts a line down his shirt*/
+                                        var(--dealer-shirt), 
+                                        var(--dealer-shirt) 47%, 
+                                        var(--dealer-shirt-stripe) 47%, 
+                                        var(--dealer-shirt-stripe)  calc(47% + 3px), 
+                                        var(--dealer-shirt) calc(47% + 3px), 
+                                        var(--dealer-shirt) 100%);
+}
+div#dealerShirt div#dealerShirtButton{
+    position: relative;
+    top: 50%;
+    left: 53%;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--dealer-shirt-button);
+    border: 5px double var(--dealer-shirt-button-accent);
+}
+
+
+/* dealer arm animation */
+@keyframes moveLeftArm {
+    0% {transform: skew(0deg);}
+    50% {transform: skew(-4deg);}
+    100% {transform: skew(0deg);}
+}
+@keyframes moveRightArm {
+    0% {transform: skew(0deg);}
+    50% {transform: skew(4deg);}
+    100% {transform: skew(0deg);}
+}
+
+
+
+/* table, control box, and message box */
+
+div#cardTable{
+    height: calc(100vh - 7rem);
+    background-color: var(--table-color);
+}
+
+
+div#controlBox, div#messageBox{
+    position: absolute;
+    bottom: 1rem;
+    border: 1px solid var(--box-border);
+    background-color: var(--box-color);
+    border-radius: 0.5rem;
+    overflow: auto;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'DM Mono', monospace;
+    filter: drop-shadow(0.5rem 0.5rem 0.2rem var(--box-shadow));
+}
+
+div#messageBox{
+    display: block;
+    right: 1rem;
+    width: 11rem;
+    height: fit-content;
+}
+div#messageBox:empty{
+    display: none;
+}
+div#messageBox p:not(:last-child){
+    margin-bottom: 0.75rem;
+}
+
+div#controlBox{
+    left: 1rem;
+    width: 11rem;
+    height: fit-content;
+}
+div#controlBox h1, div#controlBox p{
+    display: inline-block;
+    font-weight: bold;
+}
+div#controlBox > div{
+    margin: 0.5rem;
+}
+/* div#controlBox input{    I'm no longer using this but i may in the future
+    width: 4rem;
+} */
+div#controlBox button{
+    font-weight: bold;
+    border-radius: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+div#controlBox button:hover:not(:disabled){
+    filter: brightness(0.7);
+}
+div#controlBox button:active:not(:disabled){
+    filter: brightness(0.5);
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dealer-background);
+}
+
+main h1{
+    font-size: 15rem;
+    margin-bottom: 5rem;
+}

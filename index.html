@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Single Page Web App of Blackjack">
+        <meta name="keywords" content="Blackjack, Casino, 21">
+        <meta name="author" content="Thomas Neumann">
+        <title>Demo Blackjack</title>
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./public/css/reset.css">
+        <link rel="stylesheet" href="./public/css/cardstyle.css">
+        <link rel="stylesheet" href="./public/css/style.css">
+        <link rel="icon" href="./public/img/cards_favicon.png" type="image/png">
+    </head>
+    <body>
+        <div id="dealerArea">
+            <div id="sign" class="neon">
+                <span>Blackjack</span>
+            </div>
+            <div class="dealerSleeve" id="left"></div>
+            <div id="dealerShirt">
+                <div id="dealerShirtButton"></div>
+            </div>
+            <div class="dealerSleeve" id="right"></div>
+        </div>
+        <div id="cardTable">
+            <div id="deck"></div>
+            <div id="controlBox">
+                <div>
+                    <h1 id="wallet">Wallet: $1000</h1>
+                </div>
+                <div>
+                    <p id="bet">Bet: $0</p>
+                    <button id="incrementBet" aria-label="Increment bet" disabled>+</button>
+                    <button id="decrementBet" aria-label="Decrement bet" disabled>-</button>
+                </div>
+                <div>
+                    <button id="deal" disabled>Deal</button>
+                </div>
+                <div>
+                    <button id="hit" disabled>Hit</button>
+                    <button id="stay" disabled>Stay</button>
+                </div>
+                <div>
+                    <button id="reset" disabled>Reset</button>
+                </div>
+            </div>
+            <div id="messageBox"></div>
+        </div>
+        <script src="./public/js/models.js" defer></script>
+        <script src="./public/js/view.js" defer></script>
+        <script src="./public/js/app.js" defer></script>
+        <script src="./public/js/listeners.js" defer></script>
+    </body>
+</html>

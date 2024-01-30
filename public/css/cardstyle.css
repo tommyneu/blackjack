@@ -1,0 +1,127 @@
+/*******************************************************
+ * Author: Thomas Neumann                              *
+ * Class:  CSCE 315                                    *
+ * File:   cardstyle.css                               *
+ * Desc:   This file defines the variables and styles  *
+ *         for the cards in the game                   *
+ *******************************************************/
+
+
+
+:root {
+    --card-back-primary: firebrick;
+    --card-back-secondary: white;
+    
+    --card-suit-club: #1a1a1a;
+    --card-suit-diamond: firebrick;
+    --card-suit-heart: firebrick;
+    --card-suit-spade: #1a1a1a;
+}
+
+div.card{
+    font-family: math;
+    position: absolute;
+
+    width: 6rem;
+    height: 8.75rem;
+    margin: 0.5rem;
+    padding: 0;
+
+    border-radius: 0.3rem;
+    border: solid var(--card-back-secondary) 0.2rem;
+
+    font-size: 9rem;
+    line-height: 100%;
+    text-align: center;
+    
+    background-color: var(--card-back-secondary);
+    
+    /* transition: transform 250ms linear, left 1s ease, top 1s ease; */
+}
+
+div.card.Clubs{
+    color: var(--card-suit-club);
+}
+
+div.card.Diamonds{
+    color: var(--card-suit-diamond);
+}
+
+div.card.Hearts{
+    color: var(--card-suit-heart);
+}
+
+div.card.Spades{
+    color: var(--card-suit-spade);
+}
+
+div.card.down{
+    background:
+        /*Center Circle*/
+        repeating-radial-gradient(
+            var(--card-back-primary), 
+            var(--card-back-primary) 20%, 
+            var(--card-back-secondary) 20%, 
+            var(--card-back-secondary) 24%, 
+            var(--card-back-primary) 24%, 
+            var(--card-back-primary) 27%, 
+            transparent 27%, 
+            transparent 100%
+        ),
+        
+        /*Border red and white stripes*/
+        repeating-linear-gradient(
+            270deg, 
+            var(--card-back-primary), 
+            var(--card-back-primary) 8%, 
+            var(--card-back-secondary) 8%, 
+            var(--card-back-secondary) 11%, 
+            transparent 11%, 
+            transparent 100%
+        ),
+        repeating-linear-gradient(
+            90deg,  
+            var(--card-back-primary), 
+            var(--card-back-primary) 8%, 
+            var(--card-back-secondary) 8%, 
+            var(--card-back-secondary) 11%, 
+            transparent 11%, 
+            transparent 100%
+        ),
+        repeating-linear-gradient(
+            180deg, 
+            var(--card-back-primary), 
+            var(--card-back-primary) 8%, 
+            var(--card-back-secondary) 8%, 
+            var(--card-back-secondary) 11%, 
+            transparent 11%, 
+            transparent 100%
+        ),
+        repeating-linear-gradient(
+            0deg,   
+            var(--card-back-primary), 
+            var(--card-back-primary) 8%, 
+            var(--card-back-secondary) 8%, 
+            var(--card-back-secondary) 11%, 
+            transparent 11%, 
+            transparent 100%
+        ),
+        
+        /*cross hatch center*/
+        repeating-linear-gradient(
+            -45deg, 
+            var(--card-back-secondary), 
+            var(--card-back-secondary) 3%, 
+            transparent 3%, 
+            transparent 16%
+        ),
+        repeating-linear-gradient(
+            45deg,  
+            var(--card-back-secondary), 
+            var(--card-back-secondary) 3%, 
+            var(--card-back-primary) 3%, 
+            var(--card-back-primary) 16%
+        );
+
+    color: transparent;
+}
